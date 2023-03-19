@@ -6,7 +6,7 @@
 #    By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/21 18:42:22 by ekulichk          #+#    #+#              #
-#    Updated: 2023/02/23 00:36:16 by ekulichk         ###   ########.fr        #
+#    Updated: 2023/03/18 18:49:40 by ekulichk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ ft_strrchr.c\
 ft_strtrim.c\
 ft_substr.c\
 ft_tolower.c\
-ft_toupper.c
+ft_toupper.c\
+ps_atoi.c
 
 BONUS_SRC = ft_lstadd_back.c\
 ft_lstadd_front.c\

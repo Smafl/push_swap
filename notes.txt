@@ -6,9 +6,10 @@ ToDo:
 -------------------------------------------------
 Error:
 
-! If no parameters are specified, the program
-must not display anything and give the prompt
-back
+! If no parameters are specified
+(or they have been already sorted),
+the program must not display anything and
+give the prompt back
 
 ! In case of error, it must display "Error"
 followed by a ’\n’ on the standard error.
