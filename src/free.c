@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   verify_argv.c                                      :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 21:13:18 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/19 17:06:31 by ekulichk         ###   ########.fr       */
+/*   Created: 2023/03/21 22:28:57 by ekulichk          #+#    #+#             */
+/*   Updated: 2023/03/21 22:30:50 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "private.h"
-#include "stdbool.h"
-#include <stdlib.h>
 
-bool	create_stack(t_rb *rb, int argc, char **argv)
+void	free_all(t_rb *rb)
 {
-	int	items;
-	int	result;
-
-	
-	return (true);
+	free(rb->stack_a);
+	rb->stack_a = NULL;
 }

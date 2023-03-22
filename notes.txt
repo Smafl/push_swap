@@ -1,4 +1,5 @@
-ToDo:
+`ToDo:
+! ps_atoi with norm
 ! remove -g flag from
  libft
  ft_printf

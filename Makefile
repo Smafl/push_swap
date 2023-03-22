@@ -2,7 +2,9 @@
 CC = cc
 NAME = push_swap
 
-SRC = src/main.c\
+SRC = src/create_stack.c\
+src/free.c\
+src/main.c\
 src/push_swap.c
 
 OBJ = $(SRC:.c=.o)
