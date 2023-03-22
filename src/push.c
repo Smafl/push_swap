@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 22:28:57 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/22 23:46:35 by ekulichk         ###   ########.fr       */
+/*   Created: 2023/03/23 00:45:54 by ekulichk          #+#    #+#             */
+/*   Updated: 2023/03/23 00:51:15 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "private.h"
 
-// void	free_all(t_rb *rb)
+// void	pa(t_stack *stack)
 // {
-// 	free(rb->stack_a);
-// 	rb->stack_a = NULL;
+// 	if (!rb_is_empty(stack->stack_b.size))
+// 	{
+		
+// 	}
 // }

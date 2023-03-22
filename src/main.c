@@ -6,41 +6,51 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:20:52 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/22 00:08:09 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/23 00:54:26 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "private.h"
+#include <unistd.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <limits.h>
 
-void	print_stack_a(t_rb *rb)
+void	print_stack_a(t_stack *stack)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (i != rb->size_a)
+	while (i != stack->total_size)
 	{
-		ft_printf("%d in stack a\n", rb->stack_a[i]);
+		ft_printf("%d in stack a\n", stack->stack_a.items[i]);
 		i++;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	t_rb	rb;
+	t_stack	stack;
 
 	if (argc < 2)
 		return (EXIT_FAILURE);
-	if (!create_stack(&rb, ++argv))
+	if (!create_stack(&stack, ++argv))
 	{
-		ft_printf("Error\n");
-		free_all(&rb);
+		write(2, "Error\n", 6);
+		// free_all(&stack);
 		return (EXIT_FAILURE);
 	}
-	print_stack_a(&rb);
-	free_all(&rb);
+	if (stack.is_argv_sorted == true)
+	{
+		// free_all(&stack);
+		return (EXIT_FAILURE);
+	}
+	rb_b_init(&stack);
+	print_stack_a(&stack);
+	ft_printf("\n");
+	sa(&stack);
+	print_stack_a(&stack);
+	// free_all(&stack);
 	// system("leaks push_swap");
 	return (0);
 }

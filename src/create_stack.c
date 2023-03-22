@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:13:18 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/22 11:24:27 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/23 00:49:21 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,89 +14,17 @@
 #include "stdbool.h"
 #include <stdlib.h>
 
-static void	ringbuff_init(t_rb *rb)
-{
-	rb->start_a = 0;
-	rb->size_a = 0;
-	rb->capacity = 1;
-	rb->stack_a = malloc(sizeof(int) * rb->capacity);
-}
-
-static bool	is_space(char *arg)
-{
-	while (*arg)
-	{
-		if (*arg == ' ')
-			return (true);
-		arg++;
-	}
-	return (false);
-}
-
-static void	extend_rb(t_rb *rb)
-{
-	size_t	new_capacity;
-	int		*new_stack;
-
-	new_capacity = rb->capacity * 2;
-	new_stack = malloc(sizeof(int) * new_capacity);
-	ft_memcpy(new_stack, rb->stack_a, sizeof(int) * rb->capacity);
-	rb->stack_a = new_stack;
-	rb->capacity = new_capacity;
-}
-
-static bool	int_push(t_rb *rb, int result)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (rb->size_a == rb->capacity)
-		extend_rb(rb);
-	while (i != rb->size_a)
-	{
-		if (rb->stack_a[i] == result)
-			return (false);
-		i++;
-	}
-	rb->stack_a[rb->size_a] = result;
-	rb->size_a++;
-	return (true);
-}
-
-bool	parse_str(t_rb *rb, char *str)
-{
-	int		result;
-	char	**str_splited;
-
-	str_splited = ft_split(str, ' ');
-	while (*str_splited)
-	{
-		if (!ps_atoi(*str_splited, &result))
-			return (false);
-		else
-		{
-			if (!int_push(rb, result))
-				return (false);
-		}
-		str_splited++;
-	}
-	return (true);
-}
-
-bool	create_stack(t_rb *rb, char **argv)
+bool	create_stack(t_stack *stack, char **argv)
 {
 	int	result;
 
-	(void)rb;
-	ringbuff_init(rb);
+	rb_a_init(stack);
 	while (*argv != NULL)
 	{
 		if (is_space(*argv))
-		{
-			if (!parse_str(rb, *argv))
+			if (!parse_str(stack, *argv))
 				return (false);
-		}
-		else if (ft_strlen(*argv) == 0)
+		if (*argv == 0)
 			return (false);
 		else
 		{
@@ -104,11 +32,63 @@ bool	create_stack(t_rb *rb, char **argv)
 				return (false);
 			else
 			{
-				if (!int_push(rb, result))
+				if (!int_push(stack, result))
 					return (false);
 			}
 		}
 		argv++;
 	}
+	stack->total_size = stack->stack_a.size;
 	return (true);
+}
+
+void	rb_a_init(t_stack *stack)
+{
+	stack->total_size = 0;
+	stack->is_argv_sorted = true;
+	stack->stack_a.start = 0;
+	stack->stack_a.size = 0;
+	stack->stack_a.capacity = 1;
+	stack->stack_a.items = malloc(sizeof(int) * stack->stack_a.capacity);
+}
+
+void	rb_b_init(t_stack *stack)
+{
+	stack->stack_b.start = 0;
+	stack->stack_b.size = 0;
+	stack->stack_b.items = malloc(sizeof(int) * stack->total_size);
+}
+
+bool	int_push(t_stack *stack, int result)
+{
+	unsigned int	i;
+
+	i = 0;
+	if (stack->stack_a.size == stack->stack_a.capacity)
+		extend_a_rb(stack);
+	while (i != stack->stack_a.size)
+	{
+		if (stack->stack_a.items[i] == result)
+			return (false);
+		i++;
+	}
+	if (!rb_is_empty(stack->stack_a.size)
+		&& result < stack->stack_a.items[stack->stack_a.size - 1])
+		stack->is_argv_sorted = false;
+	stack->stack_a.items[stack->stack_a.size] = result;
+	stack->stack_a.size++;
+	return (true);
+}
+
+void	extend_a_rb(t_stack *stack)
+{
+	size_t	new_capacity;
+	int		*new_stack;
+
+	new_capacity = stack->stack_a.capacity * 2;
+	new_stack = malloc(sizeof(int) * new_capacity);
+	ft_memcpy(
+		new_stack, stack->stack_a.items, sizeof(int) * stack->stack_a.capacity);
+	stack->stack_a.items = new_stack;
+	stack->stack_a.capacity = new_capacity;
 }

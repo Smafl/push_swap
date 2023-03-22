@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 18:31:54 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/22 00:02:53 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:52:50 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ bool	ps_atoi(const char *str, int *result)
 		temp = (sign * (str[i++] - '0') + (temp * 10));
 		if (temp > INT_MAX || temp < INT_MIN)
 			return (false);
-		else
-			*result = temp;
+		*result = temp;
 	}
 	return (true);
 }

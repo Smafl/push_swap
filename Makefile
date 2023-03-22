@@ -5,7 +5,10 @@ NAME = push_swap
 SRC = src/create_stack.c\
 src/free.c\
 src/main.c\
-src/push_swap.c
+src/swap.c\
+src/parse_str.c\
+src/push.c\
+src/ringbuffer.c
 
 OBJ = $(SRC:.c=.o)
 FT_PRINTF := ./lib/ft_printf

@@ -1,5 +1,5 @@
 `ToDo:
-! ps_atoi with norm
+! ./push_swap "" should be error
 ! remove -g flag from
  libft
  ft_printf
