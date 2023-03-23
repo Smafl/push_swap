@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:20:52 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/23 00:54:26 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/23 15:59:26 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 	rb_b_init(&stack);
 	print_stack_a(&stack);
 	ft_printf("\n");
-	sa(&stack);
+	swap(stack.stack_a.items, stack.stack_a.size, stack.stack_a.begin);
 	print_stack_a(&stack);
 	// free_all(&stack);
 	// system("leaks push_swap");

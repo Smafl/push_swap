@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/23 00:51:18 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:04:12 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_ringbuff
 {
 	int				*items;
-	unsigned int	start;
+	unsigned int	begin;
 	unsigned int	size;
 	unsigned int	capacity;
 }	t_rb;
@@ -43,6 +43,7 @@ void	rb_b_init(t_stack *stack);
 // parse_str.c
 bool	parse_str(t_stack *stack, char *str);
 bool	is_space(char *arg);
+bool	is_all_space(char *arg);
 
 // ringbuffer.c
 bool	rb_is_empty(unsigned int size);
@@ -52,12 +53,10 @@ bool	rb_is_full(t_stack *stack, unsigned int size);
 void	free_all(t_rb *rb);
 
 // swap.c
-void	sa(t_stack *stack);
-void	sb(t_stack *stack);
+void	swap(int *items, unsigned int size, unsigned int begin);
 void	ss(t_stack *stack);
 
 // push.c
-// void	pa(t_stack *stack);
-// void	pb(t_stack *stack);
+void	push(int *items, unsigned int size, unsigned int begin);
 
 #endif

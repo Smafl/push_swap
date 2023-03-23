@@ -6,16 +6,13 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 00:45:54 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/23 00:51:15 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:58:36 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "private.h"
 
-// void	pa(t_stack *stack)
+// void	push_a(, unsigned int begin)
 // {
-// 	if (!rb_is_empty(stack->stack_b.size))
-// 	{
-		
-// 	}
+
 // }

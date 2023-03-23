@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:29:55 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/22 23:47:19 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:03:32 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,15 @@ bool	is_space(char *arg)
 		arg++;
 	}
 	return (false);
+}
+
+bool	is_all_space(char *arg)
+{
+	while (*arg)
+	{
+		if (*arg != ' ')
+			return (false);
+		arg++;
+	}
+	return (true);
 }

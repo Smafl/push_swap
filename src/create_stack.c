@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:13:18 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/23 00:49:21 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:05:06 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,21 @@ bool	create_stack(t_stack *stack, char **argv)
 	while (*argv != NULL)
 	{
 		if (is_space(*argv))
+		{
+			if (is_all_space(*argv))
+				return (false);
 			if (!parse_str(stack, *argv))
 				return (false);
-		if (*argv == 0)
+		}
+		else if (**argv == 0)
 			return (false);
 		else
 		{
 			if (!ps_atoi(*argv, &result))
 				return (false);
 			else
-			{
 				if (!int_push(stack, result))
 					return (false);
-			}
 		}
 		argv++;
 	}
@@ -46,7 +48,7 @@ void	rb_a_init(t_stack *stack)
 {
 	stack->total_size = 0;
 	stack->is_argv_sorted = true;
-	stack->stack_a.start = 0;
+	stack->stack_a.begin = 0;
 	stack->stack_a.size = 0;
 	stack->stack_a.capacity = 1;
 	stack->stack_a.items = malloc(sizeof(int) * stack->stack_a.capacity);
@@ -54,7 +56,7 @@ void	rb_a_init(t_stack *stack)
 
 void	rb_b_init(t_stack *stack)
 {
-	stack->stack_b.start = 0;
+	stack->stack_b.begin = 0;
 	stack->stack_b.size = 0;
 	stack->stack_b.items = malloc(sizeof(int) * stack->total_size);
 }
