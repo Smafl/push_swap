@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:13:18 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/23 19:05:06 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/26 01:23:37 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 bool	create_stack(t_stack *stack, char **argv)
 {
-	int	result;
-
 	rb_a_init(stack);
 	while (*argv != NULL)
 	{
@@ -32,15 +30,24 @@ bool	create_stack(t_stack *stack, char **argv)
 			return (false);
 		else
 		{
-			if (!ps_atoi(*argv, &result))
+			if (!is_atoi(stack, *argv))
 				return (false);
-			else
-				if (!int_push(stack, result))
-					return (false);
 		}
 		argv++;
 	}
 	stack->total_size = stack->stack_a.size;
+	return (true);
+}
+
+bool	is_atoi(t_stack *stack, char *argv)
+{
+	int	result;
+
+	if (!ps_atoi(argv, &result))
+		return (false);
+	else
+		if (!int_push(stack, result))
+			return (false);
 	return (true);
 }
 
@@ -59,38 +66,4 @@ void	rb_b_init(t_stack *stack)
 	stack->stack_b.begin = 0;
 	stack->stack_b.size = 0;
 	stack->stack_b.items = malloc(sizeof(int) * stack->total_size);
-}
-
-bool	int_push(t_stack *stack, int result)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (stack->stack_a.size == stack->stack_a.capacity)
-		extend_a_rb(stack);
-	while (i != stack->stack_a.size)
-	{
-		if (stack->stack_a.items[i] == result)
-			return (false);
-		i++;
-	}
-	if (!rb_is_empty(stack->stack_a.size)
-		&& result < stack->stack_a.items[stack->stack_a.size - 1])
-		stack->is_argv_sorted = false;
-	stack->stack_a.items[stack->stack_a.size] = result;
-	stack->stack_a.size++;
-	return (true);
-}
-
-void	extend_a_rb(t_stack *stack)
-{
-	size_t	new_capacity;
-	int		*new_stack;
-
-	new_capacity = stack->stack_a.capacity * 2;
-	new_stack = malloc(sizeof(int) * new_capacity);
-	ft_memcpy(
-		new_stack, stack->stack_a.items, sizeof(int) * stack->stack_a.capacity);
-	stack->stack_a.items = new_stack;
-	stack->stack_a.capacity = new_capacity;
 }

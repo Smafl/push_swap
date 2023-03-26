@@ -2,7 +2,8 @@
 CC = cc
 NAME = push_swap
 
-SRC = src/create_stack.c\
+SRC = src/create_stack_utils.c\
+src/create_stack.c\
 src/free.c\
 src/main.c\
 src/swap.c\

@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/23 19:04:12 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/26 01:27:00 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,18 @@ typedef struct s_stacks
 
 // create_stack.c
 bool	create_stack(t_stack *stack, char **argv);
+bool	is_atoi(t_stack *stack, char *argv);
 void	rb_a_init(t_stack *stack);
-bool	int_push(t_stack *stack, int result);
-void	extend_a_rb(t_stack *stack);
 void	rb_b_init(t_stack *stack);
 
 // parse_str.c
-bool	parse_str(t_stack *stack, char *str);
 bool	is_space(char *arg);
 bool	is_all_space(char *arg);
+bool	parse_str(t_stack *stack, char *str);
+
+// create_stack_utils.c
+bool	int_push(t_stack *stack, int result);
+void	extend_a_rb(t_stack *stack);
 
 // ringbuffer.c
 bool	rb_is_empty(unsigned int size);
