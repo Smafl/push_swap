@@ -6,10 +6,11 @@ SRC = src/create_stack_utils.c\
 src/create_stack.c\
 src/free.c\
 src/main.c\
-src/swap.c\
 src/parse_str.c\
-src/push.c\
-src/ringbuffer.c
+src/ringbuffer.c\
+src/operations/push.c\
+src/operations/rotate.c\
+src/operations/swap.c
 
 OBJ = $(SRC:.c=.o)
 FT_PRINTF := ./lib/ft_printf
