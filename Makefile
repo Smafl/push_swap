@@ -10,7 +10,9 @@ src/parse_str.c\
 src/ringbuffer.c\
 src/operations/push.c\
 src/operations/rotate.c\
-src/operations/swap.c
+src/operations/swap.c\
+src/check_temp.c\
+src/manual_sort.c
 
 OBJ = $(SRC:.c=.o)
 FT_PRINTF := ./lib/ft_printf
@@ -29,7 +31,7 @@ libft:
 	@$(MAKE) -C $(LIBFT)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(FT_PRINTF)/ft_printf.a $(LIBFT)/libft.a -o $(NAME)
+	$(CC) $(OBJ) $(LDFLAGS) $(FT_PRINTF)/ft_printf.a $(LIBFT)/libft.a -o $(NAME)
 
 clean:
 	rm -f $(OBJ)

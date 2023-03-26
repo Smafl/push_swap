@@ -1,9 +1,12 @@
 `ToDo:
-! ./push_swap "" should be error
-! remove -g flag from
+
+! delete manual_sort.c file and from makefile, header
+! delete check_temp.c file and from makefile, header
+! remove -g and LDFLAGS flags from
  libft
  ft_printf
  push_swap
+!+ ./push_swap "" should be error
 -------------------------------------------------
 Error:
 
