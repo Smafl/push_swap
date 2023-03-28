@@ -57,4 +57,18 @@ void	sort(t_stack *stack)
 	ft_printf("\n");
 	print_stack_b(stack);
 	ft_printf("\n");
+
+	ft_printf("ROTATE b\n");
+	rotate(stack->stack_b.size, &stack->stack_b.begin, stack->total_size);
+	print_stack_a(stack);
+	ft_printf("\n");
+	print_stack_b(stack);
+	ft_printf("\n");
+
+	ft_printf("ROTATE a\n");
+	rotate(stack->stack_a.size, &stack->stack_a.begin, stack->total_size);
+	print_stack_a(stack);
+	ft_printf("\n");
+	print_stack_b(stack);
+	ft_printf("\n");
 }
