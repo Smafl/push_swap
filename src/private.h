@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/26 20:37:36 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/27 23:30:28 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ typedef struct s_stacks
 void	print_stack_a(t_stack *stack);
 void	print_stack_b(t_stack *stack);
 void	sort(t_stack *stack);
-
-// check_temp.c  NEED DELETE
-void	check_all_temp(t_stack *stack);
 
 // create_stack.c
 bool	create_stack(t_stack *stack, char **argv);

@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 00:45:54 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/26 16:43:23 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/28 01:47:45 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ void	push_a(t_rb *stack_a, t_rb *stack_b, unsigned int total_size)
 		stack_a->items[(stack_a->begin + stack_a->size) % total_size]
 			= stack_b->items[stack_b->begin];
 		stack_b->begin = (stack_b->begin + 1) % total_size;
-		if (stack_a->size > 0)
-			stack_a->begin = (stack_a->begin + 1) % total_size;
+		// if (stack_a->size > 0)
+		// 	stack_a->begin = (stack_a->begin + 1) % total_size;
 		stack_b->size--;
 		stack_a->size++;
 	}
 }
+
+// *begin = (*begin + total_size - 1) % total_size;
 
 void	push_b(t_rb *stack_a, t_rb *stack_b, unsigned int total_size)
 {
@@ -32,11 +34,13 @@ void	push_b(t_rb *stack_a, t_rb *stack_b, unsigned int total_size)
 	{
 		stack_b->items[(stack_b->begin + stack_b->size) % total_size]
 			= stack_a->items[stack_a->begin];
+		ft_printf("index %u\n", (stack_b->begin + stack_b->size) % total_size);
 		stack_a->begin = (stack_a->begin + 1) % total_size;
-		if (stack_b->size > 0)
-			stack_b->begin = (stack_b->begin + 1) % total_size;
 		stack_a->size--;
 		stack_b->size++;
+		// if (stack_b->size > 0)
+			// stack_b->begin = (stack_b->begin + 1) % total_size;
+		rotate(stack_b->size, &stack_b->begin, total_size);
 	}
 }
 

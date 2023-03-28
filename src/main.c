@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:20:52 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/26 22:13:40 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/27 23:31:27 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	rb_b_init(&stack);
-	// sort(&stack);
+	sort(&stack);
 	// check_all_temp(&stack);
 	free_all(&stack);
 	// system("leaks push_swap");

@@ -11,7 +11,6 @@ src/ringbuffer.c\
 src/operations/push.c\
 src/operations/rotate.c\
 src/operations/swap.c\
-src/check_temp.c\
 src/manual_sort.c
 
 OBJ = $(SRC:.c=.o)
@@ -31,7 +30,7 @@ libft:
 	@$(MAKE) -C $(LIBFT)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(LDFLAGS) $(FT_PRINTF)/ft_printf.a $(LIBFT)/libft.a -o $(NAME)
+	$(CC) $(OBJ) $(FT_PRINTF)/ft_printf.a $(LIBFT)/libft.a -o $(NAME)
 
 clean:
 	rm -f $(OBJ)

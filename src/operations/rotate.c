@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 06:33:40 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/26 17:11:54 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/03/28 00:14:05 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	rev_rotate(
 	if (size > 1)
 		*begin = (*begin + total_size - 1) % total_size;
 }
+
 
 void	rev_rotate_both(t_stack *stack)
 {
