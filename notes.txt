@@ -48,6 +48,20 @@ Input:
 a
 -------------------------------------------------
 Algorithms
+//
+Оставить в А три числа: мин, макс, мед
+Считаем кол-во операций для каждого числа из Б
+Выбираем наименьшее кол-во и делаем
+
+// for 5 nbr
+- find min and max
+- put them in B
+- sort A
+- return nbr from B to A
+- if the first is max -> rotate
+- if the first is min -> swap and rotate
+
+// 
 copy array
 sort it
 find the middle value

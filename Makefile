@@ -2,16 +2,17 @@
 CC = cc
 NAME = push_swap
 
-SRC = src/create_stack_utils.c\
-src/create_stack.c\
-src/free.c\
-src/main.c\
-src/parse_str.c\
-src/ringbuffer.c\
+SRC = src/create_stack/create_stack_utils.c\
+src/create_stack/create_stack.c\
+src/create_stack/parse_str.c\
+src/create_stack/ringbuffer.c\
 src/operations/push.c\
+src/operations/rev_rotate.c\
 src/operations/rotate.c\
 src/operations/swap.c\
-src/manual_sort.c
+src/sort/sort_five.c\
+src/free.c\
+src/main.c\
 
 OBJ = $(SRC:.c=.o)
 FT_PRINTF := ./lib/ft_printf

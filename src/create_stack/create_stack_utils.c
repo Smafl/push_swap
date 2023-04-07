@@ -6,11 +6,11 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 00:37:30 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/26 18:10:48 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/04 19:01:21 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "private.h"
+#include "../private.h"
 
 bool	int_push(t_stack *stack, int result)
 {

@@ -6,11 +6,11 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:13:18 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/26 01:23:37 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/04 19:01:18 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "private.h"
+#include "../private.h"
 #include "stdbool.h"
 #include <stdlib.h>
 
