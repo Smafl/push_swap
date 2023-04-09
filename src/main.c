@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:20:52 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/07 16:18:30 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/09 17:19:37 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,12 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	rb_b_init(&stack);
-	// find_max(&stack.stack_a, &stack.max, stack.total_size);
-	// find_min(&stack.stack_a, &stack.min, stack.total_size);
-	// ft_printf("min: %d\n", stack.max);
-	// ft_printf("max: %d\n", stack.min);
-
 	if (stack.stack_a.size <= 3)
 		sort_three(&stack);
-	else if (stack.stack_a.size <= 5)
+	else if (stack.stack_a.size == 5)
 		sort_five(&stack);
-
+	else
+		sort(&stack);
 	free_all(&stack);
 	// system("leaks push_swap");
 	return (0);

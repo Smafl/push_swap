@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:13:18 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/04 19:01:18 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/09 18:26:35 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ void	rb_a_init(t_stack *stack)
 	stack->stack_a.size = 0;
 	stack->stack_a.capacity = 1;
 	stack->stack_a.items = malloc(sizeof(int) * stack->stack_a.capacity);
+	if (stack->stack_a.items == NULL)
+	{
+		free_stack(stack->stack_a.items);
+		return ;
+	}
 }
 
 void	rb_b_init(t_stack *stack)
@@ -66,4 +71,9 @@ void	rb_b_init(t_stack *stack)
 	stack->stack_b.begin = 0;
 	stack->stack_b.size = 0;
 	stack->stack_b.items = malloc(sizeof(int) * stack->total_size);
+	if (stack->stack_b.items == NULL)
+	{
+		free_all(stack);
+		return ;
+	}
 }

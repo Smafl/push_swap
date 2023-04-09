@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 00:37:30 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/04 19:01:21 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/09 18:24:53 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ void	extend_a_rb(t_stack *stack)
 
 	new_capacity = stack->stack_a.capacity * 2;
 	new_stack = malloc(sizeof(int) * new_capacity);
+	if (new_stack == NULL)
+	{
+		free_stack(stack->stack_a.items);
+		return ;
+	}
 	ft_memcpy(
 		new_stack, stack->stack_a.items, sizeof(int) * stack->stack_a.capacity);
 	free_stack(stack->stack_a.items);

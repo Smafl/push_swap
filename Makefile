@@ -11,6 +11,8 @@ src/operations/rev_rotate.c\
 src/operations/rotate.c\
 src/operations/swap.c\
 src/sort/sort_five.c\
+src/sort/sort_utils.c\
+src/sort/sort.c\
 src/free.c\
 src/main.c\
 

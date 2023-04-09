@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/07 14:36:19 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/09 18:21:57 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ typedef struct s_stacks
 	t_rb			stack_b;
 	unsigned int	total_size;
 	bool			is_argv_sorted;
-	int				min;
-	int				max;
 }	t_stack;
 
 // SRC/CREATE STACK
@@ -55,14 +53,23 @@ void	extend_a_rb(t_stack *stack);
 bool	rb_is_empty(unsigned int size);
 bool	rb_is_full(unsigned int total_size, unsigned int current_size);
 int		get_item(
-			unsigned int *begin, unsigned int index, unsigned int total_size);
+			unsigned int *begin, unsigned int index, unsigned int total_size); // delete?
 
 // SRC/SORT
+
+// sort.c
+void	sort(t_stack *stack);
+
 // sort_five.c
-void	find_min(t_rb *stack, int *min, int total_size);
-void	find_max(t_rb *stack, int *max, int total_size);
 void	sort_three(t_stack *stack);
 void	sort_five(t_stack *stack);
+
+// sort_utils.c
+int		find_min(t_rb *stack, int total_size);
+int		find_max(t_rb *stack, int total_size);
+int		find_med(t_rb *stack, int total_size);
+void	print_stack_a(t_stack *stack); // delete
+void	print_stack_b(t_stack *stack); // delete
 
 // SRC/OPERATIONS
 // push.c
