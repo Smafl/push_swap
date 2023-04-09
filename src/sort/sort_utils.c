@@ -6,11 +6,12 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:22:34 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/09 18:59:15 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/10 00:21:18 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../private.h"
+#include <stdbool.h>
 
 int	find_min(t_rb *stack, int total_size)
 {
@@ -44,6 +45,35 @@ int	find_max(t_rb *stack, int total_size)
 	return (max);
 }
 
+void	bubble_sort(int *array, int size)
+{
+	int		i;
+	int		n;
+	int		temp;
+	// bool	no_swap;
+
+	i = 0;
+	n = 0;
+	while (n < size)
+	{
+		while (i < size)
+		{
+			// no_swap = true;
+			if (array[i] > array[i + 1])
+			{
+				temp = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = temp;
+				// no_swap = false;
+			}
+			i++;
+			// if (!no_swap)
+			// 	break ;
+		}
+		n++;
+	}
+}
+
 int	find_med(t_rb *stack, int total_size)
 {
 	int				*array;
@@ -61,7 +91,13 @@ int	find_med(t_rb *stack, int total_size)
 		array[i] = stack->items[(stack->begin + i) % total_size];
 		i++;
 	}
-	
+	bubble_sort(array, stack->size);
+	i = 0;
+	while (i < stack->size)
+	{
+		ft_printf("%d ", array[i]);
+		i++;
+	}
 	return (0);
 }
 
