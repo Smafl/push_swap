@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 20:15:54 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/09 17:23:08 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/10 18:00:29 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	sort_three(t_stack *stack)
 	if (stack->stack_a.items[stack->stack_a.begin] > stack->stack_a.items[(
 				stack->stack_a.begin + 1) % stack->total_size])
 		swap_a(stack);
+	stack->s = 0;
 }
 
 void	sort_five(t_stack *stack)

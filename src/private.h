@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/09 18:21:57 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/10 18:41:47 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ typedef struct s_stacks
 	t_rb			stack_a;
 	t_rb			stack_b;
 	unsigned int	total_size;
+	unsigned int	s;
 	bool			is_argv_sorted;
 }	t_stack;
+// unsigned int s -- индекс, где лежит минимум в stack_a
 
 // SRC/CREATE STACK
 // create_stack.c
@@ -70,6 +72,8 @@ int		find_max(t_rb *stack, int total_size);
 int		find_med(t_rb *stack, int total_size);
 void	print_stack_a(t_stack *stack); // delete
 void	print_stack_b(t_stack *stack); // delete
+int		min(int a, int b);
+int		max(int a, int b);
 
 // SRC/OPERATIONS
 // push.c

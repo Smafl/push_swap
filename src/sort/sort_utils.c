@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:22:34 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/10 00:21:18 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/10 18:41:09 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,33 +50,35 @@ void	bubble_sort(int *array, int size)
 	int		i;
 	int		n;
 	int		temp;
-	// bool	no_swap;
+	bool	no_swap;
 
 	i = 0;
-	n = 0;
-	while (n < size)
+	n = size;
+	while (n > 1)
 	{
-		while (i < size)
+		i = 0;
+		no_swap = true;
+		while (i < n - 1)
 		{
-			// no_swap = true;
 			if (array[i] > array[i + 1])
 			{
 				temp = array[i];
 				array[i] = array[i + 1];
 				array[i + 1] = temp;
-				// no_swap = false;
+				no_swap = false;
 			}
 			i++;
-			// if (!no_swap)
-			// 	break ;
+			if (!no_swap)
+				break ;
 		}
-		n++;
+		n--;
 	}
 }
 
 int	find_med(t_rb *stack, int total_size)
 {
 	int				*array;
+	int				med;
 	unsigned int	i;
 
 	array = malloc(sizeof(int) * (stack->size + 1));
@@ -92,13 +94,9 @@ int	find_med(t_rb *stack, int total_size)
 		i++;
 	}
 	bubble_sort(array, stack->size);
-	i = 0;
-	while (i < stack->size)
-	{
-		ft_printf("%d ", array[i]);
-		i++;
-	}
-	return (0);
+	med = array[stack->size / 2];
+	free(array);
+	return (med);
 }
 
 void	print_stack_a(t_stack *stack)
@@ -128,4 +126,18 @@ void	print_stack_b(t_stack *stack)
 				&stack->stack_b.begin, index, stack->total_size)]);
 		index++;
 	}
+}
+
+int	max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+int	min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
 }
