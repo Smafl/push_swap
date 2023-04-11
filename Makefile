@@ -10,6 +10,8 @@ src/operations/push.c\
 src/operations/rev_rotate.c\
 src/operations/rotate.c\
 src/operations/swap.c\
+src/sort/cases.c\
+src/sort/find_cheapest.c\
 src/sort/sort_five.c\
 src/sort/sort_utils.c\
 src/sort/sort.c\

@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/10 18:41:47 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/12 01:15:13 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ typedef struct s_stacks
 	unsigned int	total_size;
 	unsigned int	s;
 	bool			is_argv_sorted;
+	int				case_nbr;
+	unsigned int	case_one;
+	unsigned int	case_two;
+	unsigned int	case_three;
+	unsigned int	case_four;
 }	t_stack;
 // unsigned int s -- индекс, где лежит минимум в stack_a
 
@@ -54,17 +59,23 @@ void	extend_a_rb(t_stack *stack);
 // ringbuffer.c
 bool	rb_is_empty(unsigned int size);
 bool	rb_is_full(unsigned int total_size, unsigned int current_size);
-int		get_item(
-			unsigned int *begin, unsigned int index, unsigned int total_size); // delete?
+int		get_item(unsigned int *begin, unsigned int index, unsigned int total_size); // delete?
 
 // SRC/SORT
-
 // sort.c
 void	sort(t_stack *stack);
 
 // sort_five.c
 void	sort_three(t_stack *stack);
 void	sort_five(t_stack *stack);
+
+// find_cheapest.c
+unsigned int	find_cheapest(t_stack *stack, unsigned int *i_target);
+int				get_cost(t_stack *stack, unsigned int *i_current_target, unsigned int i);
+unsigned int	get_target_index(t_stack *stack, int nbr);
+void			find_case(t_stack *stack, unsigned int *min_case);
+
+// cases.c
 
 // sort_utils.c
 int		find_min(t_rb *stack, int total_size);
