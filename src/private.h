@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/12 17:27:51 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/12 20:26:23 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,22 @@ typedef struct s_stacks
 	unsigned int	total_size;
 	unsigned int	s;
 	bool			is_argv_sorted;
-	int				case_nbr;
-	unsigned int	case_one;
-	unsigned int	case_two;
-	unsigned int	case_three;
-	unsigned int	case_four;
-	unsigned int	cost;
 }	t_stack;
+
+typedef struct s_find_cheapest_res
+{
+	int				case_nbr;
+	unsigned int	i_cheapest;
+	unsigned int	i_target;
+}	t_find_cheapest_res;
+
+typedef struct s_get_cost_result
+{
+	int				case_nbr;
+	unsigned int	case_cost;
+	unsigned int	i_current_target;
+}	t_get_cost_result;
+
 // unsigned int s -- индекс, где лежит минимум в stack_a
 
 // SRC/CREATE STACK
@@ -71,16 +80,15 @@ void	sort_three(t_stack *stack);
 void	sort_five(t_stack *stack);
 
 // find_cheapest.c
-unsigned int	find_cheapest(t_stack *stack, unsigned int *i_target);
-int				get_cost(t_stack *stack, unsigned int *i_current_target, unsigned int i);
+t_find_cheapest_res	find_cheapest(t_stack *stack);
+t_get_cost_result	get_cost(t_stack *stack, unsigned int i);
 unsigned int	get_target_index(t_stack *stack, int nbr);
-void			find_case(t_stack *stack, unsigned int *min_case);
 
 // cases.c
-void	case_one(t_stack *stack);
-void	case_two(t_stack *stack);
-void	case_three(t_stack *stack);
-void	case_four(t_stack *stack);
+void	case_one(t_stack *stack, unsigned int i_a, unsigned int i_b);
+void	case_two(t_stack *stack, unsigned int i_a, unsigned int i_b);
+void	case_three(t_stack *stack, unsigned int i_a, unsigned int i_b);
+void	case_four(t_stack *stack, unsigned int i_a, unsigned int i_b);
 
 // sort_utils.c
 int		find_min(t_rb *stack, int total_size);
