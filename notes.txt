@@ -78,3 +78,15 @@ then sort every chank in stack b and put in in stack a
 используется для сортировки для стека a, а затем передайте
 элемент в стек a, который использует наименьшее количество
 команд.
+-------------------------------------------------
+		{
+			"name": "push_swap",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/push_swap/push_swap",
+			// "args": ["6 67", "6", "7"],
+			// "args": [" "],
+			"args": ["-38 393 1630 515 2135 103 2773 2242 41 1387"],
+			"cwd": "${workspaceFolder}/push_swap",
+			"MIMode": "lldb"
+		},

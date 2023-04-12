@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/12 01:15:13 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:27:51 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_stacks
 	unsigned int	case_two;
 	unsigned int	case_three;
 	unsigned int	case_four;
+	unsigned int	cost;
 }	t_stack;
 // unsigned int s -- индекс, где лежит минимум в stack_a
 
@@ -76,6 +77,10 @@ unsigned int	get_target_index(t_stack *stack, int nbr);
 void			find_case(t_stack *stack, unsigned int *min_case);
 
 // cases.c
+void	case_one(t_stack *stack);
+void	case_two(t_stack *stack);
+void	case_three(t_stack *stack);
+void	case_four(t_stack *stack);
 
 // sort_utils.c
 int		find_min(t_rb *stack, int total_size);

@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:18:55 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/12 01:17:13 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:42:07 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sort(t_stack *stack)
 	int				min;
 	int				max;
 	int				med;
-	// int				cheapest;
+	int				cheapest;
 	unsigned int	i_cheapest;
 	unsigned int	i_target;
 
@@ -47,11 +47,23 @@ void	sort(t_stack *stack)
 	ft_printf("new stacks:\n");
 	print_stack_a(stack);
 	print_stack_b(stack);
+	ft_printf("\n");
 	while (stack->stack_b.size != 0)
 	{
 		i_cheapest = find_cheapest(stack, &i_target);
+		cheapest = stack->stack_b.items[(stack->stack_b.begin + i_cheapest) % stack->total_size];
+		ft_printf("cheapest: %d\n", cheapest);
 		if (stack->case_nbr == 1)
 			case_one(stack);
+		else if (stack->case_nbr == 2)
+			case_two(stack);
+		else if (stack->case_nbr == 3)
+			case_three(stack);
+		else if (stack->case_nbr == 4)
+			case_four(stack);
 	}
-	ft_printf("case_nbr %d\n", stack->case_nbr);
+	ft_printf("sorted stacks:\n");
+	print_stack_a(stack);
+	print_stack_b(stack);
+	ft_printf("\n");
 }

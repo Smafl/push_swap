@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 00:53:41 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/12 01:12:12 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:43:35 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ unsigned int	find_cheapest(
 	t_stack *stack, unsigned int *i_target)
 {
 	unsigned int	min_cost;
-	unsigned int	cost;
 	unsigned int	i_cheapest;
 	unsigned int	i_current_target;
 	unsigned int	i;
@@ -27,10 +26,10 @@ unsigned int	find_cheapest(
 	min_cost = UINT_MAX;
 	while (i != stack->stack_b.size)
 	{
-		cost = get_cost(stack, &i_current_target, i);
-		if (cost < min_cost)
+		stack->cost = get_cost(stack, &i_current_target, i);
+		if (stack->cost < min_cost)
 		{
-			min_cost = cost;
+			min_cost = stack->cost;
 			i_cheapest = i;
 			*i_target = i_current_target;
 		}
@@ -46,8 +45,7 @@ case three: rotate_a + rev_totate_b
 case four: rotate_b + rev_totate_a
 */
 int	get_cost(
-	t_stack *stack, unsigned int *i_current_target,
-	unsigned int i)
+	t_stack *stack, unsigned int *i_current_target, unsigned int i)
 {
 	unsigned int	min_case;
 
@@ -70,12 +68,21 @@ unsigned int	get_target_index(t_stack *stack, int nbr)
 	unsigned int	i;
 
 	i = 0;
+	// while (i != stack->stack_a.size)
+	// {
+	// 	if (nbr < stack->stack_a.items[(stack->stack_a.begin + stack->s + i)
+	// 			% stack->total_size])
+	// 	{
+	// 		return ((stack->s + i) % stack->total_size);
+	// 	}
+	// 	i++;
+	// }
 	while (i != stack->stack_a.size)
 	{
 		if (nbr < stack->stack_a.items[(stack->stack_a.begin + stack->s + i)
-				% stack->total_size])
+				% stack->stack_a.size])
 		{
-			return ((stack->s + i) % stack->total_size);
+			return ((stack->s + i) % stack->stack_a.size);
 		}
 		i++;
 	}
