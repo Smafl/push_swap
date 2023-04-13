@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 00:53:41 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/12 20:21:51 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/13 21:25:45 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,31 +43,31 @@ case one: rotate_both
 case two: rev_totate_both
 case three: rotate_a + rev_totate_b
 case four: rotate_b + rev_totate_a
-
 returns case number, case cost, i_current_target
 */
 t_get_cost_result	get_cost(t_stack *stack, unsigned int i)
 {
 	t_get_cost_result	res;
 	unsigned int		case_cost[4];
-	int					i;
+	unsigned int		j;
 
-	i = 0;
+	j = 0;
 	res.i_current_target = get_target_index(stack, stack->stack_b.items[(
-				stack->stack_b.begin + i) % stack->total_size]);
-	case_cost[0] = max(res.i_current_target, i);
-	case_cost[1] = max(stack->stack_b.size - i, stack->stack_a.size - res.i_current_target);
+				stack->stack_b.begin + i) % stack->buffer_size]);
+	case_cost[0] = max_uint(res.i_current_target, i);
+	case_cost[1] = max_uint(stack->stack_b.size - i,
+			stack->stack_a.size - res.i_current_target);
 	case_cost[2] = res.i_current_target + (stack->stack_b.size - i);
 	case_cost[3] = i + (stack->stack_a.size - res.i_current_target);
 	res.case_cost = UINT_MAX;
-	while (i != 4)
+	while (j != 4)
 	{
-		if (res.case_cost > case_cost[i])
+		if (res.case_cost > case_cost[j])
 		{
-			res.case_cost = case_cost[i];
-			res.case_nbr = i;
+			res.case_cost = case_cost[j];
+			res.case_nbr = j;
 		}
-		i++;
+		j++;
 	}
 	return (res);
 }
@@ -80,7 +80,9 @@ unsigned int	get_target_index(t_stack *stack, int nbr)
 	i = 0;
 	while (i != stack->stack_a.size)
 	{
-		if (nbr < stack->stack_a.items[(stack->stack_a.begin + (stack->s + i) % stack->stack_a.size) % stack->total_size])
+		if (nbr < stack->stack_a.items[(
+					stack->stack_a.begin + (stack->s + i)
+					% stack->stack_a.size) % stack->buffer_size])
 		{
 			return ((stack->s + i) % stack->stack_a.size);
 		}

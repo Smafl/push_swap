@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/12 20:26:23 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/13 21:25:14 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_stacks
 {
 	t_rb			stack_a;
 	t_rb			stack_b;
-	unsigned int	total_size;
+	unsigned int	buffer_size;
 	unsigned int	s;
 	bool			is_argv_sorted;
 }	t_stack;
@@ -68,8 +68,8 @@ void	extend_a_rb(t_stack *stack);
 
 // ringbuffer.c
 bool	rb_is_empty(unsigned int size);
-bool	rb_is_full(unsigned int total_size, unsigned int current_size);
-int		get_item(unsigned int *begin, unsigned int index, unsigned int total_size); // delete?
+bool	rb_is_full(unsigned int buffer_size, unsigned int current_size);
+int		get_item(unsigned int *begin, unsigned int index, unsigned int buffer_size); // delete?
 
 // SRC/SORT
 // sort.c
@@ -82,27 +82,29 @@ void	sort_five(t_stack *stack);
 // find_cheapest.c
 t_find_cheapest_res	find_cheapest(t_stack *stack);
 t_get_cost_result	get_cost(t_stack *stack, unsigned int i);
-unsigned int	get_target_index(t_stack *stack, int nbr);
+unsigned int		get_target_index(t_stack *stack, int nbr);
 
 // cases.c
+void	case_zero(t_stack *stack, unsigned int i_a, unsigned int i_b);
 void	case_one(t_stack *stack, unsigned int i_a, unsigned int i_b);
 void	case_two(t_stack *stack, unsigned int i_a, unsigned int i_b);
 void	case_three(t_stack *stack, unsigned int i_a, unsigned int i_b);
-void	case_four(t_stack *stack, unsigned int i_a, unsigned int i_b);
 
 // sort_utils.c
-int		find_min(t_rb *stack, int total_size);
-int		find_max(t_rb *stack, int total_size);
-int		find_med(t_rb *stack, int total_size);
+int		find_min(t_rb *stack, int buffer_size);
+int		find_max(t_rb *stack, int buffer_size);
+int		find_med(t_rb *stack, int buffer_size);
 void	print_stack_a(t_stack *stack); // delete
 void	print_stack_b(t_stack *stack); // delete
-int		min(int a, int b);
-int		max(int a, int b);
+int		min_int(int a, int b);
+int		max_int(int a, int b);
+unsigned int	min_uint(unsigned int a, unsigned int b);
+unsigned int	max_uint(unsigned int a, unsigned int b);
 
 // SRC/OPERATIONS
 // push.c
-void	push_a(t_rb *stack_a, t_rb *stack_b, unsigned int total_size);
-void	push_b(t_rb *stack_a, t_rb *stack_b, unsigned int total_size);
+void	push_a(t_rb *stack_a, t_rb *stack_b, unsigned int buffer_size);
+void	push_b(t_rb *stack_a, t_rb *stack_b, unsigned int buffer_size);
 
 // swap.c
 void	swap_a(t_stack *stack);

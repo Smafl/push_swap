@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 23:47:27 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/06 18:27:09 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/13 21:25:50 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	swap_a(t_stack *stack)
 	{
 		temp = stack->stack_a.items[stack->stack_a.begin];
 		stack->stack_a.items[stack->stack_a.begin] = stack->stack_a.items[(
-				stack->stack_a.begin + 1) % stack->total_size];
+				stack->stack_a.begin + 1) % stack->buffer_size];
 		stack->stack_a.items[(
-				stack->stack_a.begin + 1) % stack->total_size] = temp;
+				stack->stack_a.begin + 1) % stack->buffer_size] = temp;
 	}
 	ft_printf("sa\n");
 }
@@ -35,9 +35,9 @@ void	swap_b(t_stack *stack)
 	{
 		temp = stack->stack_b.items[stack->stack_b.begin];
 		stack->stack_b.items[stack->stack_b.begin] = stack->stack_b.items[(
-				stack->stack_b.begin + 1) % stack->total_size];
+				stack->stack_b.begin + 1) % stack->buffer_size];
 		stack->stack_b.items[(
-				stack->stack_b.begin + 1) % stack->total_size] = temp;
+				stack->stack_b.begin + 1) % stack->buffer_size] = temp;
 	}
 	ft_printf("sb\n");
 }

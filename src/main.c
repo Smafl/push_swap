@@ -6,15 +6,12 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:20:52 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/09 17:19:37 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/13 01:24:39 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "private.h"
 #include <unistd.h>
-#include <stdio.h>
-#include <stdbool.h>
-#include <limits.h>
 
 int	main(int argc, char **argv)
 {

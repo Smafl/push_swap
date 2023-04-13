@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 06:33:40 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/07 14:17:07 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/13 21:25:52 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	rotate_a(t_stack *stack)
 	if (stack->stack_a.size > 1)
 	{
 		stack->stack_a.items[(stack->stack_a.size + stack->stack_a.begin)
-			% stack->total_size] = stack->stack_a.items[stack->stack_a.begin];
-		stack->stack_a.begin = (stack->stack_a.begin + 1) % stack->total_size;
+			% stack->buffer_size] = stack->stack_a.items[stack->stack_a.begin];
+		stack->stack_a.begin = (stack->stack_a.begin + 1) % stack->buffer_size;
 	}
 	ft_printf("ra\n");
 }
@@ -28,8 +28,8 @@ void	rotate_b(t_stack *stack)
 	if (stack->stack_b.size > 1)
 	{
 		stack->stack_b.items[(stack->stack_b.size + stack->stack_b.begin)
-			% stack->total_size] = stack->stack_b.items[stack->stack_b.begin];
-		stack->stack_b.begin = (stack->stack_b.begin + 1) % stack->total_size;
+			% stack->buffer_size] = stack->stack_b.items[stack->stack_b.begin];
+		stack->stack_b.begin = (stack->stack_b.begin + 1) % stack->buffer_size;
 	}
 	ft_printf("rb\n");
 }

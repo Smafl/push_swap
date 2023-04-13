@@ -1,11 +1,14 @@
 `ToDo:
 
-! rename total_size to buffer_size
-! delete manual_sort.c file and from makefile, header
+! change s
+! check leaks
+! how works EXIT_FAILURE
+! check min/max functions
 ! remove -g and LDFLAGS flags from
  libft
  ft_printf
  push_swap
+!+ rename total_size to buffer_size
 !+ ./push_swap "" should be error
 -------------------------------------------------
 Error:
@@ -49,7 +52,20 @@ a
 -------------------------------------------------
 Algorithms
 //
-Оставить в А три числа: мин, макс, мед
+- leave in stack_a min, med, max
+- others move in stack_b
+- find_cheapest
+(for each elem in stack_b find the min_cost) ->
+- get_cost
+(find target_index: where we shoud put an elem from
+stack_a to stack_b;
+for this we count how many operations we need;
+case one: rotate_both
+case two: rev_totate_both
+case three: rotate_a + rev_totate_b
+case four: rotate_b + rev_totate_a;
+returns case number, case cost, i_current_target
+)
 Считаем кол-во операций для каждого числа из Б
 Выбираем наименьшее кол-во и делаем
 
@@ -62,22 +78,7 @@ Algorithms
 - if the first is min -> swap and rotate
 
 // 
-copy array
-sort it
-find the middle value
-run through stack a
-numbers less than the middle put in stack b
-numbers more than the middle put at bottom of stack a
-remember this chanck in stack b
-repeat all with stack a until there stay 2-3 max value
-then sort every chank in stack b and put in in stack a
 
-1. Стек a всегда выровнен.
-2. Все, что попадает в стек a, не возвращается в стек b.
-3. Для каждого элемента стека b вычислите, сколько команд
-используется для сортировки для стека a, а затем передайте
-элемент в стек a, который использует наименьшее количество
-команд.
 -------------------------------------------------
 		{
 			"name": "push_swap",
@@ -90,3 +91,5 @@ then sort every chank in stack b and put in in stack a
 			"cwd": "${workspaceFolder}/push_swap",
 			"MIMode": "lldb"
 		},
+
+~/Desktop/Git_Smafl/push_swap/push_swap

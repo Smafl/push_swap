@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:13:18 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/09 18:26:35 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/13 21:26:06 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ bool	create_stack(t_stack *stack, char **argv)
 		}
 		argv++;
 	}
-	stack->total_size = stack->stack_a.size;
+	stack->buffer_size = stack->stack_a.size;
 	return (true);
 }
 
@@ -53,7 +53,7 @@ bool	is_atoi(t_stack *stack, char *argv)
 
 void	rb_a_init(t_stack *stack)
 {
-	stack->total_size = 0;
+	stack->buffer_size = 0;
 	stack->is_argv_sorted = true;
 	stack->stack_a.begin = 0;
 	stack->stack_a.size = 0;
@@ -70,7 +70,7 @@ void	rb_b_init(t_stack *stack)
 {
 	stack->stack_b.begin = 0;
 	stack->stack_b.size = 0;
-	stack->stack_b.items = malloc(sizeof(int) * stack->total_size);
+	stack->stack_b.items = malloc(sizeof(int) * stack->buffer_size);
 	if (stack->stack_b.items == NULL)
 	{
 		free_all(stack);

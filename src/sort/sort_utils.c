@@ -6,14 +6,14 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:22:34 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/10 18:41:09 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/13 21:25:40 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../private.h"
 #include <stdbool.h>
 
-int	find_min(t_rb *stack, int total_size)
+int	find_min(t_rb *stack, int buffer_size)
 {
 	unsigned int	i;
 	int				min;
@@ -22,14 +22,14 @@ int	find_min(t_rb *stack, int total_size)
 	min = stack->items[i];
 	while (i < stack->size)
 	{
-		if (min > stack->items[(stack->begin + i) % total_size])
-			min = stack->items[(stack->begin + i) % total_size];
+		if (min > stack->items[(stack->begin + i) % buffer_size])
+			min = stack->items[(stack->begin + i) % buffer_size];
 		i++;
 	}
 	return (min);
 }
 
-int	find_max(t_rb *stack, int total_size)
+int	find_max(t_rb *stack, int buffer_size)
 {
 	unsigned int	i;
 	int				max;
@@ -38,8 +38,8 @@ int	find_max(t_rb *stack, int total_size)
 	max = stack->items[stack->begin];
 	while (i < stack->size)
 	{
-		if (max < stack->items[(stack->begin + i) % total_size])
-			max = stack->items[(stack->begin + i) % total_size];
+		if (max < stack->items[(stack->begin + i) % buffer_size])
+			max = stack->items[(stack->begin + i) % buffer_size];
 		i++;
 	}
 	return (max);
@@ -75,7 +75,7 @@ void	bubble_sort(int *array, int size)
 	}
 }
 
-int	find_med(t_rb *stack, int total_size)
+int	find_med(t_rb *stack, int buffer_size)
 {
 	int				*array;
 	int				med;
@@ -90,7 +90,7 @@ int	find_med(t_rb *stack, int total_size)
 	i = 0;
 	while (i < stack->size)
 	{
-		array[i] = stack->items[(stack->begin + i) % total_size];
+		array[i] = stack->items[(stack->begin + i) % buffer_size];
 		i++;
 	}
 	bubble_sort(array, stack->size);
@@ -108,7 +108,7 @@ void	print_stack_a(t_stack *stack)
 	while (i != stack->stack_a.size)
 	{
 		ft_printf("%d	", stack->stack_a.items[(
-				stack->stack_a.begin + i) % stack->total_size]);
+				stack->stack_a.begin + i) % stack->buffer_size]);
 		i++;
 	}
 	ft_printf("\n");
@@ -123,19 +123,33 @@ void	print_stack_b(t_stack *stack)
 	while (index != stack->stack_b.size)
 	{
 		ft_printf("%d	", stack->stack_b.items[get_item(
-				&stack->stack_b.begin, index, stack->total_size)]);
+				&stack->stack_b.begin, index, stack->buffer_size)]);
 		index++;
 	}
 }
 
-int	max(int a, int b)
+int	max_int(int a, int b)
 {
 	if (a > b)
 		return (a);
 	return (b);
 }
 
-int	min(int a, int b)
+int	min_int(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+unsigned int	max_uint(unsigned int a, unsigned int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+unsigned int	min_uint(unsigned int a, unsigned int b)
 {
 	if (a < b)
 		return (a);
