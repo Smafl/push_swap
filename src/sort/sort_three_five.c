@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_five.c                                        :+:      :+:    :+:   */
+/*   sort_three_five.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 20:15:54 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 19:24:58 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:14:46 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../private.h"
+
+void	start_sort(t_stack *stack)
+{
+	if (stack->stack_a.size <= 3)
+		sort_three(stack);
+	else if (stack->stack_a.size == 5)
+		sort_five(stack);
+	else if (stack->stack_a.size == 4 || stack->stack_a.size > 5)
+		sort(stack);
+}
 
 void	sort_three(t_stack *stack)
 {

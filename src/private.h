@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 21:04:40 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:13:37 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,13 @@ bool				rb_is_full(
 						unsigned int buffer_size, unsigned int current_size);
 
 // SRC/SORT
-// sort.c
-void				sort(t_stack *stack);
-
 // sort_five.c
+void				start_sort(t_stack *stack);
 void				sort_three(t_stack *stack);
 void				sort_five(t_stack *stack);
+
+// sort.c
+void				sort(t_stack *stack);
 
 // find_cheapest.c
 t_find_cheapest_res	find_cheapest(t_stack *stack);
