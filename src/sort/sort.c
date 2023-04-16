@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:18:55 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 04:59:45 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 14:23:30 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	find_s(t_stack *stack, int min, unsigned int i_min)
 		{
 			stack->s = i_min;
 			// ft_printf("s: %u\n", stack->s);
-			// ft_printf("nbr for s: %d\n", stack->stack_a.items[(stack->stack_a.begin + i_min) % stack->buffer_size]);
+			// ft_printf("n`br for s: %d\n", stack->stack_a.items[(stack->stack_a.begin + i_min) % stack->buffer_size]);
 		}
 		i_min++;
 	}
@@ -38,7 +38,7 @@ void	sort(t_stack *stack)
 	int					max;
 	int					med;
 	unsigned int		i_min;
-	int					nbr_begin;
+	// int					nbr_begin;
 
 	ft_printf("old stacks:\n");
 	print_stack_a(stack);
@@ -94,7 +94,7 @@ void	sort(t_stack *stack)
 			print_stack_b(stack);
 		}
 		find_s(stack, min, i_min);
-		nbr_begin = stack->stack_a.items[stack->stack_a.begin];
+		// nbr_begin = stack->stack_a.items[stack->stack_a.b`egin];
 	}
 	i_min = 0;
 	while (stack->stack_a.items[stack->stack_a.begin] != min)
@@ -107,7 +107,7 @@ void	sort(t_stack *stack)
 	ft_printf("s: %u\n", stack->s);
 }
 
-void	sort_2(t_stack *stack)
+void	sort_without_print(t_stack *stack)
 {
 	t_find_cheapest_res	cheapest;
 	int					min;
