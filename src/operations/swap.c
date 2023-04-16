@@ -6,11 +6,12 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 23:47:27 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/13 21:25:50 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 04:59:20 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../private.h"
+#include <unistd.h>
 
 void	swap_a(t_stack *stack)
 {
@@ -23,8 +24,9 @@ void	swap_a(t_stack *stack)
 				stack->stack_a.begin + 1) % stack->buffer_size];
 		stack->stack_a.items[(
 				stack->stack_a.begin + 1) % stack->buffer_size] = temp;
+		// ft_printf("sa\n");
+		write(1, "sa\n", 3);
 	}
-	ft_printf("sa\n");
 }
 
 void	swap_b(t_stack *stack)
@@ -38,13 +40,18 @@ void	swap_b(t_stack *stack)
 				stack->stack_b.begin + 1) % stack->buffer_size];
 		stack->stack_b.items[(
 				stack->stack_b.begin + 1) % stack->buffer_size] = temp;
+		// ft_printf("sb\n");
+		write(1, "sb\n", 3);
 	}
-	ft_printf("sb\n");
 }
 
 void	swap_both(t_stack *stack)
 {
-	swap_a(stack);
-	swap_b(stack);
-	ft_printf("ss\n");
+	if (stack->stack_a.size > 1 && stack->stack_b.size > 1)
+	{
+		swap_a(stack);
+		swap_b(stack);
+		// ft_printf("ss\n");
+		write(1, "ss\n", 3);
+	}
 }

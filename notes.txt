@@ -1,5 +1,6 @@
 `ToDo:
 
+! test_case_14: "args": ["	+ 0"]
 ! change s
 ! check leaks
 ! how works EXIT_FAILURE
@@ -93,3 +94,6 @@ returns case number, case cost, i_current_target
 		},
 
 ~/Desktop/Git_Smafl/push_swap/push_swap
+
+cd ../push_swap_visualizer/build/bin
+cd ../../../push_swap

@@ -6,14 +6,14 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 00:53:41 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/13 21:25:45 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:10:36 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../private.h"
 #include <limits.h>
 
-// add if (min_cost == 1) -> break and do
+// add if (min_cost == 0) -> break and do
 t_find_cheapest_res	find_cheapest(t_stack *stack)
 {
 	t_get_cost_result	curr_cost;
@@ -39,10 +39,10 @@ t_find_cheapest_res	find_cheapest(t_stack *stack)
 }
 
 /*
-case one: rotate_both
-case two: rev_totate_both
-case three: rotate_a + rev_totate_b
-case four: rotate_b + rev_totate_a
+case 0: rotate_both
+case 1: rev_totate_both
+case 2: rotate_a + rev_totate_b
+case 3: rev_rotate_a + rotate_b
 returns case number, case cost, i_current_target
 */
 t_get_cost_result	get_cost(t_stack *stack, unsigned int i)
@@ -76,13 +76,16 @@ t_get_cost_result	get_cost(t_stack *stack, unsigned int i)
 unsigned int	get_target_index(t_stack *stack, int nbr)
 {
 	unsigned int	i;
+	int				nbr_stack_a;
 
 	i = 0;
 	while (i != stack->stack_a.size)
 	{
+
+		nbr_stack_a = stack->stack_a.items[(stack->stack_a.begin + ((stack->s + i) % stack->stack_a.size)) % stack->buffer_size];
 		if (nbr < stack->stack_a.items[(
-					stack->stack_a.begin + (stack->s + i)
-					% stack->stack_a.size) % stack->buffer_size])
+					stack->stack_a.begin + ((stack->s + i)
+					% stack->stack_a.size)) % stack->buffer_size])
 		{
 			return ((stack->s + i) % stack->stack_a.size);
 		}

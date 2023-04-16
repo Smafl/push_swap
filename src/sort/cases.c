@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:15:31 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/13 21:25:47 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 04:44:58 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,19 @@ void	case_zero(t_stack *stack, unsigned int i_a, unsigned int i_b)
 	push_a(&stack->stack_a, &stack->stack_b, stack->buffer_size);
 }
 
+/*
+stack a: -70    -31      -52     -15     281     349     380     -81
+stack b: 264    292     278     -79     376     363     14
+i_a: 4
+i_b: 0
+
+*/
 void	case_one(t_stack *stack, unsigned int i_a, unsigned int i_b)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (i != min_uint(i_a, i_b))
+	while (i != min_uint(stack->stack_a.size - i_a, stack->stack_b.size - i_b))
 	{
 		rev_rotate_both(stack);
 		i++;
@@ -65,7 +72,7 @@ void	case_one(t_stack *stack, unsigned int i_a, unsigned int i_b)
 	i = 0;
 	if (i_a > i_b)
 	{
-		while (i != i_a - i_b)
+		while (i != (stack->stack_a.size - i_a) - (stack->stack_b.size - i_b))
 		{
 			rev_rotate_a(stack);
 			i++;
@@ -73,7 +80,7 @@ void	case_one(t_stack *stack, unsigned int i_a, unsigned int i_b)
 	}
 	else
 	{
-		while (i != i_b - i_a)
+		while (i != (stack->stack_b.size - i_b) - (stack->stack_a.size - i_a))
 		{
 			rev_rotate_b(stack);
 			i++;
@@ -96,7 +103,7 @@ void	case_two(t_stack *stack, unsigned int i_a, unsigned int i_b)
 	i = 0;
 	if (i_a > i_b)
 	{
-		while (i != i_a - i_b)
+		while (i != i_a)
 		{
 			rotate_a(stack);
 			i++;
@@ -104,7 +111,7 @@ void	case_two(t_stack *stack, unsigned int i_a, unsigned int i_b)
 	}
 	else
 	{
-		while (i != i_b - i_a)
+		while (i != stack->stack_b.size - i_b)
 		{
 			rev_rotate_b(stack);
 			i++;
@@ -127,7 +134,7 @@ void	case_three(t_stack *stack, unsigned int i_a, unsigned int i_b)
 	i = 0;
 	if (i_a > i_b)
 	{
-		while (i != i_a - i_b)
+		while (i != stack->stack_a.size - i_a)
 		{
 			rev_rotate_a(stack);
 			i++;
@@ -135,7 +142,7 @@ void	case_three(t_stack *stack, unsigned int i_a, unsigned int i_b)
 	}
 	else
 	{
-		while (i != i_b - i_a)
+		while (i != i_b)
 		{
 			rotate_b(stack);
 			i++;

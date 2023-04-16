@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/13 21:25:14 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 03:59:00 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ void	extend_a_rb(t_stack *stack);
 // ringbuffer.c
 bool	rb_is_empty(unsigned int size);
 bool	rb_is_full(unsigned int buffer_size, unsigned int current_size);
-int		get_item(unsigned int *begin, unsigned int index, unsigned int buffer_size); // delete?
 
 // SRC/SORT
 // sort.c
 void	sort(t_stack *stack);
+void	sort_2(t_stack *stack);
 
 // sort_five.c
 void	sort_three(t_stack *stack);

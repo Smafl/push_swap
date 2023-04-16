@@ -6,11 +6,12 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 00:45:54 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/13 21:25:58 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 05:00:35 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../private.h"
+#include <unistd.h>
 
 void	push_a(t_rb *stack_a, t_rb *stack_b, unsigned int buffer_size)
 {
@@ -22,8 +23,9 @@ void	push_a(t_rb *stack_a, t_rb *stack_b, unsigned int buffer_size)
 		stack_b->begin = (stack_b->begin + 1) % buffer_size;
 		stack_b->size--;
 		stack_a->size++;
+		// ft_printf("pa\n");
+		write(1, "pa\n", 3);
 	}
-	ft_printf("pa\n");
 }
 
 void	push_b(t_rb *stack_a, t_rb *stack_b, unsigned int buffer_size)
@@ -36,6 +38,7 @@ void	push_b(t_rb *stack_a, t_rb *stack_b, unsigned int buffer_size)
 		stack_a->begin = (stack_a->begin + 1) % buffer_size;
 		stack_a->size--;
 		stack_b->size++;
+		// ft_printf("pb\n");
+		write(1, "pb\n", 3);
 	}
-	ft_printf("pb\n");
 }

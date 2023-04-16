@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:20:52 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/13 01:24:39 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 05:05:04 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int	main(int argc, char **argv)
 		sort_three(&stack);
 	else if (stack.stack_a.size == 5)
 		sort_five(&stack);
-	else
+	else if (stack.stack_a.size == 4 || stack.stack_a.size > 5)
 		sort(&stack);
+		// sort_2(&stack);
 	free_all(&stack);
 	// system("leaks push_swap");
 	return (0);

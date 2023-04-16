@@ -6,11 +6,12 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 06:33:40 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/13 21:25:52 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 04:58:43 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../private.h"
+#include <unistd.h>
 
 void	rotate_a(t_stack *stack)
 {
@@ -19,8 +20,9 @@ void	rotate_a(t_stack *stack)
 		stack->stack_a.items[(stack->stack_a.size + stack->stack_a.begin)
 			% stack->buffer_size] = stack->stack_a.items[stack->stack_a.begin];
 		stack->stack_a.begin = (stack->stack_a.begin + 1) % stack->buffer_size;
+		// ft_printf("ra\n");
+		write(1, "ra\n", 3);
 	}
-	ft_printf("ra\n");
 }
 
 void	rotate_b(t_stack *stack)
@@ -30,15 +32,20 @@ void	rotate_b(t_stack *stack)
 		stack->stack_b.items[(stack->stack_b.size + stack->stack_b.begin)
 			% stack->buffer_size] = stack->stack_b.items[stack->stack_b.begin];
 		stack->stack_b.begin = (stack->stack_b.begin + 1) % stack->buffer_size;
+		// ft_printf("rb\n");
+		write(1, "rb\n", 3);
 	}
-	ft_printf("rb\n");
 }
 
 void	rotate_both(t_stack *stack)
 {
-	rotate_a(stack);
-	rotate_b(stack);
-	ft_printf("rr\n");
+	if (stack->stack_a.size > 1 && stack->stack_b.size > 1)
+	{		
+		rotate_a(stack);
+		rotate_b(stack);
+		// ft_printf("rr\n");
+		write(1, "rr\n", 4);
+	}
 }
 
 /*

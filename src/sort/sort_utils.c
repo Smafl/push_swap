@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:22:34 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/13 21:25:40 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 02:20:53 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,15 +101,14 @@ int	find_med(t_rb *stack, int buffer_size)
 
 void	print_stack_a(t_stack *stack)
 {
-	unsigned int	i;
+	unsigned int	index;
 
-	i = 0;
+	index = 0;
 	ft_printf("stack a: ");
-	while (i != stack->stack_a.size)
+	while (index != stack->stack_a.size)
 	{
-		ft_printf("%d	", stack->stack_a.items[(
-				stack->stack_a.begin + i) % stack->buffer_size]);
-		i++;
+		ft_printf("%d	", stack->stack_a.items[(stack->stack_a.begin + index) % stack->buffer_size]);
+		index++;
 	}
 	ft_printf("\n");
 }
@@ -122,10 +121,10 @@ void	print_stack_b(t_stack *stack)
 	ft_printf("stack b: ");
 	while (index != stack->stack_b.size)
 	{
-		ft_printf("%d	", stack->stack_b.items[get_item(
-				&stack->stack_b.begin, index, stack->buffer_size)]);
+		ft_printf("%d	", stack->stack_b.items[(stack->stack_b.begin + index) % stack->buffer_size]);
 		index++;
 	}
+	ft_printf("\n");
 }
 
 int	max_int(int a, int b)
