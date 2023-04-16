@@ -6,43 +6,56 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:22:34 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 02:20:53 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 20:59:37 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../private.h"
-#include <stdbool.h>
 
-int	find_min(t_rb *stack, int buffer_size)
+void	case_zero_end(t_stack *stack, unsigned int i_a, unsigned int i_b)
 {
 	unsigned int	i;
-	int				min;
 
 	i = 0;
-	min = stack->items[i];
-	while (i < stack->size)
+	if (i_a > i_b)
 	{
-		if (min > stack->items[(stack->begin + i) % buffer_size])
-			min = stack->items[(stack->begin + i) % buffer_size];
-		i++;
+		while (i != i_a - i_b)
+		{
+			rotate_a(stack);
+			i++;
+		}
 	}
-	return (min);
+	else
+	{
+		while (i != i_b - i_a)
+		{
+			rotate_b(stack);
+			i++;
+		}
+	}
 }
 
-int	find_max(t_rb *stack, int buffer_size)
+void	case_one_end(t_stack *stack, unsigned int i_a, unsigned int i_b)
 {
 	unsigned int	i;
-	int				max;
 
 	i = 0;
-	max = stack->items[stack->begin];
-	while (i < stack->size)
+	if (stack->stack_a.size - i_a > stack->stack_b.size - i_b)
 	{
-		if (max < stack->items[(stack->begin + i) % buffer_size])
-			max = stack->items[(stack->begin + i) % buffer_size];
-		i++;
+		while (i != (stack->stack_a.size - i_a) - (stack->stack_b.size - i_b))
+		{
+			rev_rotate_a(stack);
+			i++;
+		}
 	}
-	return (max);
+	else
+	{
+		while (i != (stack->stack_b.size - i_b) - (stack->stack_a.size - i_a))
+		{
+			rev_rotate_b(stack);
+			i++;
+		}
+	}
 }
 
 void	bubble_sort(int *array, int size)
@@ -52,7 +65,6 @@ void	bubble_sort(int *array, int size)
 	int		temp;
 	bool	no_swap;
 
-	i = 0;
 	n = size;
 	while (n > 1)
 	{
@@ -73,84 +85,4 @@ void	bubble_sort(int *array, int size)
 		}
 		n--;
 	}
-}
-
-int	find_med(t_rb *stack, int buffer_size)
-{
-	int				*array;
-	int				med;
-	unsigned int	i;
-
-	array = malloc(sizeof(int) * (stack->size + 1));
-	if (array == NULL)
-	{
-		free_stack(stack->items);
-		return (-1);
-	}
-	i = 0;
-	while (i < stack->size)
-	{
-		array[i] = stack->items[(stack->begin + i) % buffer_size];
-		i++;
-	}
-	bubble_sort(array, stack->size);
-	med = array[stack->size / 2];
-	free(array);
-	return (med);
-}
-
-void	print_stack_a(t_stack *stack)
-{
-	unsigned int	index;
-
-	index = 0;
-	ft_printf("stack a: ");
-	while (index != stack->stack_a.size)
-	{
-		ft_printf("%d	", stack->stack_a.items[(stack->stack_a.begin + index) % stack->buffer_size]);
-		index++;
-	}
-	ft_printf("\n");
-}
-
-void	print_stack_b(t_stack *stack)
-{
-	unsigned int	index;
-
-	index = 0;
-	ft_printf("stack b: ");
-	while (index != stack->stack_b.size)
-	{
-		ft_printf("%d	", stack->stack_b.items[(stack->stack_b.begin + index) % stack->buffer_size]);
-		index++;
-	}
-	ft_printf("\n");
-}
-
-int	max_int(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-
-int	min_int(int a, int b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-unsigned int	max_uint(unsigned int a, unsigned int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-
-unsigned int	min_uint(unsigned int a, unsigned int b)
-{
-	if (a < b)
-		return (a);
-	return (b);
 }

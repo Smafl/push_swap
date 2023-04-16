@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 20:15:54 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/13 21:25:42 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 19:24:58 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	sort_five(t_stack *stack)
 	{
 		if (stack->stack_a.items[stack->stack_a.begin] == max
 			|| stack->stack_a.items[stack->stack_a.begin] == min)
-			push_b(&stack->stack_a, &stack->stack_b, stack->buffer_size);
+			push_b(stack);
 		else
 			rotate_a(stack);
 	}
 	sort_three(stack);
-	push_a(&stack->stack_a, &stack->stack_b, stack->buffer_size);
-	push_a(&stack->stack_a, &stack->stack_b, stack->buffer_size);
+	push_a(stack);
+	push_a(stack);
 	if (stack->stack_a.items[stack->stack_a.begin] == max)
 		rotate_a(stack);
 	else

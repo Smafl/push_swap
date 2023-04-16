@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 00:53:41 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 13:29:34 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:15:47 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,13 @@ t_get_cost_result	get_cost(t_stack *stack, unsigned int i)
 unsigned int	get_target_index(t_stack *stack, int nbr)
 {
 	unsigned int	i;
-	// int				nbr_stack_a;
 
 	i = 0;
 	while (i != stack->stack_a.size)
 	{
-
-		// nbr_stack_a = stack->stack_a.items[(stack->stack_a.begin + ((stack->s + i) % stack->stack_a.size)) % stack->buffer_size];
 		if (nbr < stack->stack_a.items[(
 					stack->stack_a.begin + ((stack->s + i)
-					% stack->stack_a.size)) % stack->buffer_size])
+						% stack->stack_a.size)) % stack->buffer_size])
 		{
 			return ((stack->s + i) % stack->stack_a.size);
 		}

@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 00:37:30 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/09 18:24:53 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 19:52:01 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,14 @@ void	extend_a_rb(t_stack *stack)
 	free_stack(stack->stack_a.items);
 	stack->stack_a.items = new_stack;
 	stack->stack_a.capacity = new_capacity;
+}
+
+bool	rb_is_empty(unsigned int size)
+{
+	return (size == 0);
+}
+
+bool	rb_is_full(unsigned int buffer_size, unsigned int current_size)
+{
+	return (buffer_size == current_size);
 }

@@ -97,3 +97,107 @@ returns case number, case cost, i_current_target
 
 cd ../push_swap_visualizer/build/bin
 cd ../../../push_swap
+
+void	sort(t_stack *stack)
+{
+	t_find_cheapest_res	cheapest;
+	int					min;
+	int					max;
+	int					med;
+	unsigned int		i_min;
+
+	ft_printf("old stacks:\n");
+	print_stack_a(stack);
+	print_stack_b(stack);
+	min = find_min(&stack->stack_a, stack->buffer_size);
+	med = find_med(&stack->stack_a, stack->buffer_size);
+	max = find_max(&stack->stack_a, stack->buffer_size);
+	while (stack->stack_a.size != 3)
+	{
+		if (stack->stack_a.items[stack->stack_a.begin] == min
+			|| stack->stack_a.items[stack->stack_a.begin] == max
+			|| stack->stack_a.items[stack->stack_a.begin] == med)
+		{
+			rotate_a(stack);
+		}
+		else
+			push_b(&stack->stack_a, &stack->stack_b, stack->buffer_size);
+	}
+	sort_three(stack);
+	ft_printf("new stacks:\n");
+	print_stack_a(stack);
+	print_stack_b(stack);
+	while (stack->stack_b.size != 0)
+	{
+		i_min = 0;
+		cheapest = find_cheapest(stack);
+		if (cheapest.case_nbr == 0)
+		{
+			case_zero(stack, cheapest.i_target, cheapest.i_cheapest);
+			ft_printf("sorted after case 0:\n");
+			print_stack_a(stack);
+			print_stack_b(stack);
+		}
+		else if (cheapest.case_nbr == 1)
+		{
+			case_one(stack, cheapest.i_target, cheapest.i_cheapest);
+			ft_printf("sorted after case 1:\n");
+			print_stack_a(stack);
+			print_stack_b(stack);
+		}
+		else if (cheapest.case_nbr == 2)
+		{
+			case_two(stack, cheapest.i_target, cheapest.i_cheapest);
+			ft_printf("sorted after case 2:\n");
+			print_stack_a(stack);
+			print_stack_b(stack);
+		}
+		else if (cheapest.case_nbr == 3)
+		{
+			case_three(stack, cheapest.i_target, cheapest.i_cheapest);
+			ft_printf("sorted after case 3:\n");
+			print_stack_a(stack);
+			print_stack_b(stack);
+		}
+		find_s(stack, min, i_min);
+	}
+	i_min = 0;
+	while (stack->stack_a.items[stack->stack_a.begin] != min)
+	{
+		rotate_a(stack);
+	}
+	ft_printf("sorted stacks:\n");
+	print_stack_a(stack);
+	print_stack_b(stack);
+	ft_printf("s: %u\n", stack->s);
+}
+
+void	print_stack_a(t_stack *stack)
+{
+	unsigned int	index;
+
+	index = 0;
+	ft_printf("stack a: ");
+	while (index != stack->stack_a.size)
+	{
+		ft_printf("%d	", stack->stack_a.items[(stack->stack_a.begin + index) % stack->buffer_size]);
+		index++;
+	}
+	ft_printf("\n");
+}
+
+void	print_stack_b(t_stack *stack)
+{
+	unsigned int	index;
+
+	index = 0;
+	ft_printf("stack b: ");
+	while (index != stack->stack_b.size)
+	{
+		ft_printf("%d	", stack->stack_b.items[(stack->stack_b.begin + index) % stack->buffer_size]);
+		index++;
+	}
+	ft_printf("\n");
+}
+
+./push_swap $(./rand.sh 100 1000) | wc -l

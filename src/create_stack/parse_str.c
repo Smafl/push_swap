@@ -6,11 +6,12 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 21:29:55 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/04 19:01:12 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 19:55:14 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../private.h"
+#include <limits.h>
 
 bool	is_space(char *arg)
 {

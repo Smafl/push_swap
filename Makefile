@@ -5,14 +5,15 @@ NAME = push_swap
 SRC = src/create_stack/create_stack_utils.c\
 src/create_stack/create_stack.c\
 src/create_stack/parse_str.c\
-src/create_stack/ringbuffer.c\
+src/operations/exec_both.c\
 src/operations/push.c\
 src/operations/rev_rotate.c\
 src/operations/rotate.c\
 src/operations/swap.c\
 src/sort/cases.c\
 src/sort/find_cheapest.c\
-src/sort/sort_five.c\
+src/sort/find_min_max.c\
+src/sort/sort_three_five.c\
 src/sort/sort_utils.c\
 src/sort/sort.c\
 src/free.c\

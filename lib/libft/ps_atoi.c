@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 18:31:54 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/03/22 20:52:50 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:55:00 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ bool	ps_atoi(const char *str, int *result)
 	i = 0;
 	sign = 1;
 	temp = 0;
-	if (((str[0] >= '\t' && str[0] <= '\r') || str[0] == ' '))
-		return (false);
 	if (str[0] == '+' || str[0] == '-')
 	{
 		if (str[0] == '-')
 			sign = -1;
 		i++;
 	}
+	if (str[i] == 0)
+		return (false);
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))

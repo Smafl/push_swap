@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 06:33:40 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 14:03:38 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/16 20:01:15 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,38 @@
 
 void	rotate_a(t_stack *stack)
 {
-	if (stack->stack_a.size > 1)
-	{
-		stack->stack_a.items[(stack->stack_a.size + stack->stack_a.begin)
-			% stack->buffer_size] = stack->stack_a.items[stack->stack_a.begin];
-		stack->stack_a.begin = (stack->stack_a.begin + 1) % stack->buffer_size;
-		// ft_printf("ra\n");
-		write(1, "ra\n", 3);
-	}
+	ft_printf("ra\n");
+	exec_rotate_a(stack);
 }
 
 void	rotate_b(t_stack *stack)
 {
-	if (stack->stack_b.size > 1)
-	{
-		stack->stack_b.items[(stack->stack_b.size + stack->stack_b.begin)
-			% stack->buffer_size] = stack->stack_b.items[stack->stack_b.begin];
-		stack->stack_b.begin = (stack->stack_b.begin + 1) % stack->buffer_size;
-		// ft_printf("rb\n");
-		write(1, "rb\n", 3);
-	}
+	ft_printf("rb\n");
+	exec_rotate_b(stack);
+}
+
+void	exec_rotate_a(t_stack *stack)
+{
+	if (stack->stack_a.size <= 1)
+		return ;
+	stack->stack_a.items[(stack->stack_a.size + stack->stack_a.begin)
+		% stack->buffer_size] = stack->stack_a.items[stack->stack_a.begin];
+	stack->stack_a.begin = (stack->stack_a.begin + 1) % stack->buffer_size;
+}
+
+void	exec_rotate_b(t_stack *stack)
+{
+	if (stack->stack_b.size <= 1)
+		return ;
+	stack->stack_b.items[(stack->stack_b.size + stack->stack_b.begin)
+		% stack->buffer_size] = stack->stack_b.items[stack->stack_b.begin];
+	stack->stack_b.begin = (stack->stack_b.begin + 1) % stack->buffer_size;
 }
 
 void	rotate_both(t_stack *stack)
 {
-	if (stack->stack_a.size > 1)
-	{
-		stack->stack_a.items[(stack->stack_a.size + stack->stack_a.begin)
-			% stack->buffer_size] = stack->stack_a.items[stack->stack_a.begin];
-		stack->stack_a.begin = (stack->stack_a.begin + 1) % stack->buffer_size;
-	}
-	if (stack->stack_b.size > 1)
-	{
-		stack->stack_b.items[(stack->stack_b.size + stack->stack_b.begin)
-			% stack->buffer_size] = stack->stack_b.items[stack->stack_b.begin];
-		stack->stack_b.begin = (stack->stack_b.begin + 1) % stack->buffer_size;
-	}
-	// if (stack->stack_a.size > 1 && stack->stack_b.size > 1)
-	// {		
-	// 	rotate_a(stack);
-	// 	rotate_b(stack);
-	// 	// ft_printf("rr\n");
-	// }
-	write(1, "rr\n", 4);
+	ft_printf("rr\n");
+	exec_rotate_both(stack);
 }
 
 /*
