@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:19:44 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 21:13:37 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/18 02:26:47 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_stacks
 	t_rb			stack_b;
 	unsigned int	buffer_size;
 	unsigned int	s;
-	bool			is_argv_sorted;
+	bool			is_sorted;
 }	t_stack;
 
 typedef struct s_find_cheapest_res

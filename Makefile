@@ -1,6 +1,7 @@
 
 CC = cc
 NAME = push_swap
+BONUS_NAME = checker
 
 SRC = src/create_stack/create_stack_utils.c\
 src/create_stack/create_stack.c\
@@ -17,7 +18,13 @@ src/sort/sort_three_five.c\
 src/sort/sort_utils.c\
 src/sort/sort.c\
 src/free.c\
-src/main.c\
+src/main.c
+
+BNS_SRC = src/checker/checker.c\
+src/checker/get_next_line_utils.c\
+src/checker/get_next_line_.c\
+src/free.c\
+src/main_checker.c
 
 OBJ = $(SRC:.c=.o)
 FT_PRINTF := ./lib/ft_printf

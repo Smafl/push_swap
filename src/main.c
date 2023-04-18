@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:20:52 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 21:13:49 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/18 02:31:48 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 		free_stack(stack.stack_a.items);
 		return (EXIT_FAILURE);
 	}
-	if (stack.is_argv_sorted == true)
+	if (stack.is_sorted == true)
 	{
 		free_stack(stack.stack_a.items);
 		return (EXIT_FAILURE);

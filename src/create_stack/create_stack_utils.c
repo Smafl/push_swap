@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 00:37:30 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 19:52:01 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/18 02:27:17 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool	int_push(t_stack *stack, int result)
 	}
 	if (!rb_is_empty(stack->stack_a.size)
 		&& result < stack->stack_a.items[stack->stack_a.size - 1])
-		stack->is_argv_sorted = false;
+		stack->is_sorted = false;
 	stack->stack_a.items[stack->stack_a.size] = result;
 	stack->stack_a.size++;
 	return (true);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   main_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 21:07:14 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 22:04:30 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/18 02:27:38 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@ int	main(int argc, char **argv)
 		free_stack(stack.stack_a.items);
 		return (EXIT_FAILURE);
 	}
-	if (stack.is_argv_sorted == true)
+	if (stack.is_sorted == true)
 	{
 		free_stack(stack.stack_a.items);
 		return (EXIT_FAILURE);
 	}
 	rb_b_init(&stack);
-	start_sort(&stack);
+	sort(&stack);
+	run_checker(&stack);
 	free_all(&stack);
 	return (0);
 }

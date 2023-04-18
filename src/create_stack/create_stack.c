@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:13:18 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/13 21:26:06 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/18 02:27:09 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool	is_atoi(t_stack *stack, char *argv)
 void	rb_a_init(t_stack *stack)
 {
 	stack->buffer_size = 0;
-	stack->is_argv_sorted = true;
+	stack->is_sorted = true;
 	stack->stack_a.begin = 0;
 	stack->stack_a.size = 0;
 	stack->stack_a.capacity = 1;
