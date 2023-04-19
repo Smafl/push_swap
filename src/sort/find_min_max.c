@@ -6,11 +6,11 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 20:23:37 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 20:26:11 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/19 13:39:07 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../private.h"
+#include "../push_swap.h"
 
 int	find_min(t_rb *stack, int buffer_size)
 {

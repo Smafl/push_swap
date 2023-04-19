@@ -6,11 +6,11 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 20:15:54 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 21:14:46 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/19 13:39:03 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../private.h"
+#include "../push_swap.h"
 
 void	start_sort(t_stack *stack)
 {

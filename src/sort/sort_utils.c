@@ -6,11 +6,11 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:22:34 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 20:59:37 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/19 13:38:57 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../private.h"
+#include "../push_swap.h"
 
 void	case_zero_end(t_stack *stack, unsigned int i_a, unsigned int i_b)
 {

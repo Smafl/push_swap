@@ -6,11 +6,11 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 00:53:41 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 18:15:47 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/19 13:39:12 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../private.h"
+#include "../push_swap.h"
 #include <limits.h>
 
 // add if (min_cost == 0) -> break and do

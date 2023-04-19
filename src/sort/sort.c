@@ -6,11 +6,11 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:18:55 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/16 20:12:06 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/19 13:38:46 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../private.h"
+#include "../push_swap.h"
 
 static void	find_s(t_stack *stack, int min, unsigned int i_min)
 {

@@ -6,11 +6,11 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:20:52 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/18 02:31:48 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/19 13:37:35 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "private.h"
+#include "push_swap.h"
 #include <unistd.h>
 
 int	main(int argc, char **argv)

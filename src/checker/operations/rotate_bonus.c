@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 06:33:40 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/19 13:39:29 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:16:43 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 #include <unistd.h>
-
-void	rotate_a(t_stack *stack)
-{
-	ft_printf("ra\n");
-	exec_rotate_a(stack);
-}
-
-void	rotate_b(t_stack *stack)
-{
-	ft_printf("rb\n");
-	exec_rotate_b(stack);
-}
 
 void	exec_rotate_a(t_stack *stack)
 {
@@ -41,12 +29,6 @@ void	exec_rotate_b(t_stack *stack)
 	stack->stack_b.items[(stack->stack_b.size + stack->stack_b.begin)
 		% stack->buffer_size] = stack->stack_b.items[stack->stack_b.begin];
 	stack->stack_b.begin = (stack->stack_b.begin + 1) % stack->buffer_size;
-}
-
-void	rotate_both(t_stack *stack)
-{
-	ft_printf("rr\n");
-	exec_rotate_both(stack);
 }
 
 /*

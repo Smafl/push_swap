@@ -1,29 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 00:45:54 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/19 13:39:37 by ekulichk         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:18:45 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 #include <unistd.h>
-
-void	push_a(t_stack *stack)
-{
-	ft_printf("pa\n");
-	exec_push_a(&stack->stack_a, &stack->stack_b, stack->buffer_size);
-}
-
-void	push_b(t_stack *stack)
-{
-	ft_printf("pb\n");
-	exec_push_b(&stack->stack_a, &stack->stack_b, stack->buffer_size);
-}
 
 void	exec_push_a(t_rb *stack_a, t_rb *stack_b, unsigned int buffer_size)
 {
