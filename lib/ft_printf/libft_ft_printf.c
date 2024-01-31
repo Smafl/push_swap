@@ -60,7 +60,7 @@ int	ftp_hex_itoa(unsigned long n, int flag, char *result)
 	size = ftp_get_size_hex(n);
 	i = size;
 	result[i--] = '\0';
-	while (n >= 0)
+	while (n > 0)
 	{
 		result[i--] = ftp_get_hex_digit(n % 16, flag);
 		n /= 16;

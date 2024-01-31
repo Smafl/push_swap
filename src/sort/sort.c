@@ -6,7 +6,7 @@
 /*   By: ekulichk <ekulichk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:18:55 by ekulichk          #+#    #+#             */
-/*   Updated: 2023/04/19 13:38:46 by ekulichk         ###   ########.fr       */
+/*   Updated: 2024/01/31 21:34:56 by ekulichk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	sort(t_stack *stack)
 	int					min;
 	int					max;
 	int					med;
-	unsigned int		i_min;
 
 	min = find_min(&stack->stack_a, stack->buffer_size);
 	med = find_med(&stack->stack_a, stack->buffer_size);
@@ -74,7 +73,6 @@ void	sort(t_stack *stack)
 	push_all_in_b(stack, min, med, max);
 	sort_three(stack);
 	sort_all(stack, min);
-	i_min = 0;
 	while (stack->stack_a.items[stack->stack_a.begin] != min)
 	{
 		if (stack->s < stack->stack_a.size / 2)
